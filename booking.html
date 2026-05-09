@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book a Treatment | Oriental Spa El Nido</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── PAGE SHELL ──────────────────────────────────────── */
+    .booking-page {
+      min-height: 100vh;
+      padding: 148px 8% 100px;
+      background: #F5EEE1;
+    }
+
+    /* ── BACK LINK ───────────────────────────────────────── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #7A6E5D;
+      font-size: 0.84rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin-bottom: 52px;
+      transition: color 0.25s ease;
+    }
+    .back-link svg {
+      width: 16px; height: 16px;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .back-link:hover { color: #4E7F5E; }
+    .back-link:hover svg { transform: translateX(-3px); }
+    .back-link:focus-visible { outline: 2px solid #4E7F5E; outline-offset: 3px; }
+
+    /* ── HEADER ──────────────────────────────────────────── */
+    .booking-header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+    .booking-header .section-tag {
+      color: #4E7F5E;
+    }
+    .booking-header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+      color: #1B1813;
+      margin-bottom: 16px;
+    }
+    .booking-header h1 em {
+      font-style: italic;
+      color: #4E7F5E;
+    }
+    .booking-header p {
+      color: #7A6E5D;
+      font-size: 1rem;
+      line-height: 1.82;
+      font-weight: 300;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ── SERVICE CARDS ───────────────────────────────────── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-bottom: 80px;
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(27,24,19,0.09);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  box-shadow 0.4s ease;
+      box-shadow: 0 2px 8px rgba(27,24,19,0.05),
+                  0 8px 28px rgba(27,24,19,0.06);
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 24px rgba(27,24,19,0.08),
+                  0 24px 60px rgba(27,24,19,0.10);
+    }
+
+    .service-card-img {
+      width: 100%; height: 220px;
+      object-fit: cover; display: block;
+    }
+
+    .service-card-body {
+      padding: 28px 30px 30px;
+    }
+
+    .service-duration {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #4E7F5E;
+      margin-bottom: 10px;
+    }
+
+    .service-card-body h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: #1B1813;
+      margin-bottom: 10px;
+    }
+
+    .service-card-body p {
+      font-size: 0.88rem;
+      line-height: 1.75;
+      color: #7A6E5D;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .service-includes {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 26px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(27,24,19,0.08);
+    }
+    .service-includes li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: #4A4136;
+    }
+    .service-includes li::before {
+      content: '';
+      width: 5px; height: 5px;
+      background: #4E7F5E;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .book-service-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: #4E7F5E;
+      color: #fff;
+      padding: 13px 24px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.80rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  box-shadow 0.3s ease,
+                  background 0.25s ease;
+      box-shadow: 0 2px 8px rgba(78,127,94,0.28), 0 6px 18px rgba(78,127,94,0.14);
+    }
+    .book-service-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      background: #3A6047;
+      box-shadow: 0 4px 16px rgba(78,127,94,0.38), 0 10px 28px rgba(78,127,94,0.18);
+    }
+    .book-service-btn:active { transform: scale(0.97); }
+    .book-service-btn:focus-visible { outline: 2px solid #4E7F5E; outline-offset: 3px; }
+
+    /* ── FORM SECTION ────────────────────────────────────── */
+    .booking-form-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .form-section-label {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .form-section-label .section-tag { color: #4E7F5E; }
+    .form-section-label h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.9rem);
+      letter-spacing: -0.03em;
+      color: #1B1813;
+      line-height: 1.1;
+    }
+    .form-section-label h2 em { font-style: italic; color: #4E7F5E; }
+
+    .booking-form {
+      background: #fff;
+      border: 1px solid rgba(27,24,19,0.09);
+      border-radius: 24px;
+      padding: 52px 52px 48px;
+      box-shadow: 0 4px 20px rgba(27,24,19,0.05),
+                  0 16px 52px rgba(27,24,19,0.06);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .form-group.full { grid-column: 1 / -1; }
+
+    .form-group label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #4E7F5E;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: #F9F5EE;
+      border: 1.5px solid rgba(27,24,19,0.13);
+      border-radius: 12px;
+      padding: 13px 16px;
+      color: #1B1813;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.93rem;
+      font-weight: 400;
+      transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A6E5D' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(27,24,19,0.28);
+    }
+    .form-group select option {
+      background: #fff;
+      color: #1B1813;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #4E7F5E;
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(78,127,94,0.10);
+    }
+    .form-group input[type="date"] {
+      color: #1B1813;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 110px;
+      line-height: 1.65;
+    }
+
+    .form-divider {
+      border: none;
+      border-top: 1px solid rgba(27,24,19,0.09);
+      margin: 32px 0;
+    }
+
+    .form-submit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      margin-top: 32px;
+    }
+    .form-submit .btn-primary {
+      padding: 17px 56px;
+      font-size: 0.86rem;
+    }
+    .form-note {
+      font-size: 0.78rem;
+      color: #9A9086;
+      text-align: center;
+      line-height: 1.65;
+    }
+
+    /* ── DIVIDER ─────────────────────────────────────────── */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin: 72px 0 64px;
+      color: #B0A69A;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(27,24,19,0.12);
+    }
+
+    @media (max-width: 768px) {
+      .booking-page   { padding: 120px 6% 72px; }
+      .form-row       { grid-template-columns: 1fr; }
+      .booking-form   { padding: 32px 24px 28px; }
+      .services-grid  { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<!-- ── NAVBAR ── -->
+<header class="navbar scrolled">
+  <a href="index.html" class="logo-text">Oriental <em>Spa</em></a>
+
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#gallery">Gallery</a></li>
+    </ul>
+  </nav>
+
+  <a href="index.html" class="nav-btn">Back Home</a>
+</header>
+
+<!-- ── BOOKING PAGE ── -->
+<section class="booking-page">
+
+  <a href="index.html" class="back-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+    Back to Home
+  </a>
+
+  <!-- Header -->
+  <div class="booking-header">
+    <span class="section-tag">Book Your Visit</span>
+    <h1>Choose Your<br/><em>Treatment</em></h1>
+    <p>Select a service and book directly via WhatsApp, or fill in the form below and we'll confirm within the hour.</p>
+  </div>
+
+  <!-- Service Cards -->
+  <div class="services-grid">
+
+    <div class="service-card">
+      <img src="https://placehold.co/600x220/3D3528/7B9E87" alt="Traditional Hilot" class="service-card-img">
+      <div class="service-card-body">
+        <span class="service-duration">60 · 90 min</span>
+        <h2>Traditional Hilot</h2>
+        <p>Ancient Filipino healing massage that restores energy flow and relieves deep muscle tension.</p>
+        <ul class="service-includes">
+          <li>Full body technique</li>
+          <li>Coconut oil blend</li>
+          <li>Pressure point work</li>
+        </ul>
+        <a href="https://wa.me/639000000000?text=Hi!%20I'd%20like%20to%20book%20a%20Traditional%20Hilot%20at%20Oriental%20Spa%20El%20Nido." class="book-service-btn" target="_blank">Book via WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="https://placehold.co/600x220/4A3D2A/C4935C" alt="Hot Stone Therapy" class="service-card-img">
+      <div class="service-card-body">
+        <span class="service-duration">90 min</span>
+        <h2>Hot Stone Therapy</h2>
+        <p>Smooth volcanic basalt stones melt deep tension, improve circulation, and calm the nervous system.</p>
+        <ul class="service-includes">
+          <li>Volcanic basalt stones</li>
+          <li>Deep muscle release</li>
+          <li>Warm oil application</li>
+        </ul>
+        <a href="https://wa.me/639000000000?text=Hi!%20I'd%20like%20to%20book%20a%20Hot%20Stone%20Therapy%20at%20Oriental%20Spa%20El%20Nido." class="book-service-btn" target="_blank">Book via WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="https://placehold.co/600x220/3D3528/7B9E87" alt="Aromatherapy" class="service-card-img">
+      <div class="service-card-body">
+        <span class="service-duration">60 · 90 min</span>
+        <h2>Aromatherapy</h2>
+        <p>Pure essential oils combined with long, flowing Swedish strokes to calm the mind and nourish the skin.</p>
+        <ul class="service-includes">
+          <li>Custom essential oil blend</li>
+          <li>Swedish technique</li>
+          <li>Scalp and shoulder work</li>
+        </ul>
+        <a href="https://wa.me/639000000000?text=Hi!%20I'd%20like%20to%20book%20an%20Aromatherapy%20Massage%20at%20Oriental%20Spa%20El%20Nido." class="book-service-btn" target="_blank">Book via WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="https://placehold.co/600x220/4A3D2A/C4935C" alt="Foot Reflexology" class="service-card-img">
+      <div class="service-card-body">
+        <span class="service-duration">45 · 60 min</span>
+        <h2>Foot Reflexology</h2>
+        <p>Targeted pressure on reflex points to relieve tension throughout the body — perfect after a day of exploring.</p>
+        <ul class="service-includes">
+          <li>Full reflex map technique</li>
+          <li>Warm herbal foot soak</li>
+          <li>Lower leg massage</li>
+        </ul>
+        <a href="https://wa.me/639000000000?text=Hi!%20I'd%20like%20to%20book%20a%20Foot%20Reflexology%20session%20at%20Oriental%20Spa%20El%20Nido." class="book-service-btn" target="_blank">Book via WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="https://placehold.co/600x220/3D3528/7B9E87" alt="Facial Treatment" class="service-card-img">
+      <div class="service-card-body">
+        <span class="service-duration">60 min</span>
+        <h2>Facial Treatment</h2>
+        <p>A deeply cleansing and hydrating facial using natural botanicals. Leaves skin luminous and refreshed.</p>
+        <ul class="service-includes">
+          <li>Deep cleanse and exfoliation</li>
+          <li>Botanical mask</li>
+          <li>Hydrating finish</li>
+        </ul>
+        <a href="https://wa.me/639000000000?text=Hi!%20I'd%20like%20to%20book%20a%20Facial%20Treatment%20at%20Oriental%20Spa%20El%20Nido." class="book-service-btn" target="_blank">Book via WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img src="https://placehold.co/600x220/4A3D2A/D4AA72" alt="Couples Ritual" class="service-card-img">
+      <div class="service-card-body">
+        <span class="service-duration">90 min</span>
+        <h2>Couples Ritual</h2>
+        <p>Side-by-side massages in our private couples suite. Choose your style and unwind together in paradise.</p>
+        <ul class="service-includes">
+          <li>Private couples room</li>
+          <li>Choice of massage style</li>
+          <li>Complimentary herbal tea</li>
+        </ul>
+        <a href="https://wa.me/639000000000?text=Hi!%20I'd%20like%20to%20book%20a%20Couples%20Ritual%20at%20Oriental%20Spa%20El%20Nido." class="book-service-btn" target="_blank">Book via WhatsApp</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Divider -->
+  <div class="section-divider">Or book with a form</div>
+
+  <!-- Booking Form -->
+  <div class="booking-form-wrap">
+    <div class="form-section-label">
+      <span class="section-tag">Send Us a Request</span>
+      <h2>We'll Confirm<br/><em>Within the Hour</em></h2>
+    </div>
+
+    <form class="booking-form" onsubmit="handleBooking(event)">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">WhatsApp / Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="+63 or international" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="service">Treatment</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Select a treatment</option>
+            <option value="hilot">Traditional Hilot</option>
+            <option value="hotstone">Hot Stone Therapy</option>
+            <option value="aroma">Aromatherapy Massage</option>
+            <option value="reflexology">Foot Reflexology</option>
+            <option value="facial">Facial Treatment</option>
+            <option value="couples">Couples Ritual</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="duration">Duration</label>
+          <select id="duration" name="duration">
+            <option value="" disabled selected>Select duration</option>
+            <option value="45">45 Minutes</option>
+            <option value="60">60 Minutes</option>
+            <option value="90">90 Minutes</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="date">Preferred Date</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+        <div class="form-group">
+          <label for="time">Preferred Time</label>
+          <select id="time" name="time">
+            <option value="" disabled selected>Select time</option>
+            <option value="9am">9:00 AM</option>
+            <option value="10am">10:00 AM</option>
+            <option value="11am">11:00 AM</option>
+            <option value="1pm">1:00 PM</option>
+            <option value="2pm">2:00 PM</option>
+            <option value="3pm">3:00 PM</option>
+            <option value="4pm">4:00 PM</option>
+            <option value="5pm">5:00 PM</option>
+          </select>
+        </div>
+      </div>
+
+      <hr class="form-divider">
+
+      <div class="form-group full">
+        <label for="notes">Special Requests or Notes</label>
+        <textarea id="notes" name="notes" placeholder="Any health conditions, preferences, or special requests..."></textarea>
+      </div>
+
+      <div class="form-submit">
+        <button type="submit" class="btn-primary">Send Booking Request</button>
+        <p class="form-note">We'll confirm via WhatsApp within the hour.<br/>Walk-ins welcome — subject to availability.</p>
+      </div>
+
+    </form>
+  </div>
+
+</section>
+
+<script src="script.js"></script>
+<script>
+  function handleBooking(e) {
+    e.preventDefault();
+    const name     = document.getElementById('name').value;
+    const phone    = document.getElementById('phone').value;
+    const service  = document.getElementById('service').options[document.getElementById('service').selectedIndex].text;
+    const duration = document.getElementById('duration').value;
+    const date     = document.getElementById('date').value;
+    const time     = document.getElementById('time').value;
+    const notes    = document.getElementById('notes').value;
+
+    const msg = `Hi! I'd like to book a treatment at Oriental Spa El Nido.%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0ATreatment: ${encodeURIComponent(service)}%0ADuration: ${duration} min%0ADate: ${encodeURIComponent(date)}%0ATime: ${encodeURIComponent(time)}${notes ? '%0ANotes: ' + encodeURIComponent(notes) : ''}`;
+
+    window.open('https://wa.me/639000000000?text=' + msg, '_blank');
+  }
+</script>
+</body>
+</html>
