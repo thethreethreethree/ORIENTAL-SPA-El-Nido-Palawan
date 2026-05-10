@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
@@ -10,14 +10,14 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
 
   <style>
-    /* â”€â”€ PAGE SHELL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* ── PAGE SHELL ── */
     .booking-page {
       min-height: 100vh;
-      padding: 20px 8% 100px;
+      padding: 148px 8% 100px;
       background: #F5EEE1;
     }
 
-    /* â”€â”€ BACK LINK â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* ── BACK LINK ── */
     .back-link {
       display: inline-flex;
       align-items: center;
@@ -37,7 +37,7 @@
     .back-link:hover svg { transform: translateX(-3px); }
     .back-link:focus-visible { outline: 2px solid #2898B5; outline-offset: 3px; }
 
-    /* â”€â”€ HEADER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* ── HEADER ── */
     .booking-header {
       text-align: center;
       margin-bottom: 72px;
@@ -66,7 +66,7 @@
       margin: 0 auto;
     }
 
-    /* â”€â”€ SERVICE CARDS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* ── SERVICE CARDS ── */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -176,7 +176,7 @@
     .book-service-btn:active { transform: scale(0.97); }
     .book-service-btn:focus-visible { outline: 2px solid #2898B5; outline-offset: 3px; }
 
-    /* â”€â”€ FORM SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* ── FORM SECTION ── */
     .booking-form-wrap {
       max-width: 760px;
       margin: 0 auto;
@@ -298,7 +298,7 @@
       line-height: 1.65;
     }
 
-    /* â”€â”€ DIVIDER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* ── DIVIDER ── */
     .section-divider {
       display: flex;
       align-items: center;
@@ -319,7 +319,7 @@
     }
 
     @media (max-width: 768px) {
-      .booking-page   { padding: 20px 6% 72px; }
+      .booking-page   { padding: 120px 6% 72px; }
       .form-row       { grid-template-columns: 1fr; }
       .booking-form   { padding: 32px 24px 28px; }
       .services-grid  { grid-template-columns: 1fr; }
@@ -328,11 +328,11 @@
 </head>
 <body>
 
-<div class=”grain”></div>
+<div class="grain"></div>
 
 <!-- ── NAVBAR ── -->
-<header class=”navbar scrolled” style=”position:fixed!important;top:0!important;width:100%!important;”>
-  <a href=”index.html” class=”logo-text”>Oriental <em>Spa</em></a>
+<header class="navbar scrolled">
+  <a href="index.html" class="logo-text">Oriental <em>Spa</em></a>
 
   <nav>
     <ul class="nav-links">
@@ -345,7 +345,7 @@
   <a href="index.html" class="nav-btn">Back Home</a>
 </header>
 
-<!-- â”€â”€ BOOKING PAGE â”€â”€ -->
+<!-- ── BOOKING PAGE ── -->
 <section class="booking-page">
 
   <a href="index.html" class="back-link">
@@ -368,7 +368,7 @@
     <div class="service-card">
       <img src="assets/SnapInsta.to_653063728_882959604745241_603088372594473141_n.jpg" alt="Traditional Hilot" class="service-card-img">
       <div class="service-card-body">
-        <span class="service-duration">60 Â· 90 min</span>
+        <span class="service-duration">60 · 90 min</span>
         <h2>Traditional Hilot</h2>
         <p>Ancient Filipino healing massage that restores energy flow and relieves deep muscle tension.</p>
         <ul class="service-includes">
@@ -398,7 +398,7 @@
     <div class="service-card">
       <img src="assets/SnapInsta.to_651723610_882959624745239_2095488004697478689_n.jpg" alt="Aromatherapy" class="service-card-img">
       <div class="service-card-body">
-        <span class="service-duration">60 Â· 90 min</span>
+        <span class="service-duration">60 · 90 min</span>
         <h2>Aromatherapy</h2>
         <p>Pure essential oils combined with long, flowing Swedish strokes to calm the mind and nourish the skin.</p>
         <ul class="service-includes">
@@ -413,9 +413,9 @@
     <div class="service-card">
       <img src="assets/SnapInsta.to_642861831_872527775788424_1753979691193599435_n.jpg" alt="Foot Reflexology" class="service-card-img">
       <div class="service-card-body">
-        <span class="service-duration">45 Â· 60 min</span>
+        <span class="service-duration">45 · 60 min</span>
         <h2>Foot Reflexology</h2>
-        <p>Targeted pressure on reflex points to relieve tension throughout the body â€” perfect after a day of exploring.</p>
+        <p>Targeted pressure on reflex points to relieve tension throughout the body — perfect after a day of exploring.</p>
         <ul class="service-includes">
           <li>Full reflex map technique</li>
           <li>Warm herbal foot soak</li>
@@ -534,7 +534,7 @@
 
       <div class="form-submit">
         <button type="submit" class="btn-primary">Send Booking Request</button>
-        <p class="form-note">We'll confirm via WhatsApp within the hour.<br/>Walk-ins welcome â€” subject to availability.</p>
+        <p class="form-note">We'll confirm via WhatsApp within the hour.<br/>Walk-ins welcome — subject to availability.</p>
       </div>
 
     </form>
@@ -561,4 +561,3 @@
 </script>
 </body>
 </html>
-
